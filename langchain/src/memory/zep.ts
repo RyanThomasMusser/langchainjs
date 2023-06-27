@@ -8,10 +8,10 @@ import {
 } from "./base.js";
 import { BaseChatMemory, BaseChatMemoryInput } from "./chat_memory.js";
 import {
-  BaseChatMessage,
+  BaseMessage,
   ChatMessage,
   AIChatMessage,
-  HumanChatMessage,
+  HumanMessage,
 } from "../schema/index.js";
 
 export interface ZepMemoryInput extends BaseChatMemoryInput {
@@ -76,13 +76,13 @@ export class ZepMemory extends BaseChatMemory implements ZepMemoryInput {
       }
     }
 
-    let messages: BaseChatMessage[] = [];
+    let messages: BaseMessage[] = [];
 
     if (memory) {
       messages = memory.messages.map((message) => {
         const { content, role } = message;
         if (role === this.humanPrefix) {
-          return new HumanChatMessage(content);
+          return new HumanMessage(content);
         } else if (role === this.aiPrefix) {
           return new AIChatMessage(content);
         } else {

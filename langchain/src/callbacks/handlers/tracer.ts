@@ -2,7 +2,7 @@ import { KVMap, BaseRun } from "langchainplus-sdk/schemas";
 
 import {
   AgentAction,
-  BaseChatMessage,
+  BaseMessage,
   ChainValues,
   LLMResult,
 } from "../../schema/index.js";
@@ -118,7 +118,7 @@ export abstract class BaseTracer extends BaseCallbackHandler {
 
   async handleChatModelStart(
     llm: Serialized,
-    messages: BaseChatMessage[][],
+    messages: BaseMessage[][],
     runId: string,
     parentRunId?: string,
     extraParams?: KVMap,
