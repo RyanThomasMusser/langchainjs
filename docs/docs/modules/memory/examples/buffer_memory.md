@@ -32,11 +32,11 @@ This lets you easily pick up state from past conversations:
 
 ```typescript
 import { ChatMessageHistory } from "langchain/memory";
-import { HumanChatMessage, AIChatMessage } from "langchain/schema";
+import { HumanMessage, AIMessage } from "langchain/schema";
 
 const pastMessages = [
-  new HumanChatMessage("My name's Jonas"),
-  new AIChatMessage("Nice to meet you, Jonas!"),
+  new HumanMessage("My name's Jonas"),
+  new AIMessage("Nice to meet you, Jonas!"),
 ];
 
 const memory = new BufferMemory({
